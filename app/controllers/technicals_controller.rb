@@ -38,8 +38,8 @@ class TechnicalsController < ApplicationController
   def update
     respond_to do |format|
       if @technical.update(technical_params)
-        format.html { redirect_to @technical, notice: "Technical was successfully updated." }
-        format.json { render :show, status: :ok, location: @technical }
+        format.html { redirect_to root_path, notice: "Technical was successfully updated." }
+        format.json { render :root, status: :ok, location: @technical }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @technical.errors, status: :unprocessable_entity }

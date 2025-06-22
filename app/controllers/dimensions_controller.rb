@@ -25,8 +25,8 @@ class DimensionsController < ApplicationController
 
     respond_to do |format|
       if @dimension.save
-        format.html { redirect_to @dimension, notice: "Dimension was successfully created." }
-        format.json { render :show, status: :created, location: @dimension }
+        format.html { redirect_to root_path, notice: "Dimension was successfully created." }
+        format.json { render :root, status: :created, location: @dimension }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @dimension.errors, status: :unprocessable_entity }
@@ -38,8 +38,8 @@ class DimensionsController < ApplicationController
   def update
     respond_to do |format|
       if @dimension.update(dimension_params)
-        format.html { redirect_to @dimension, notice: "Dimension was successfully updated." }
-        format.json { render :show, status: :ok, location: @dimension }
+        format.html { redirect_to root_path, notice: "Dimension was successfully updated." }
+        format.json { render :root, status: :ok, location: @dimension }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @dimension.errors, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class DimensionsController < ApplicationController
     @dimension.destroy!
 
     respond_to do |format|
-      format.html { redirect_to dimensions_path, status: :see_other, notice: "Dimension was successfully destroyed." }
+      format.html { redirect_to root_path, status: :see_other, notice: "Dimension was successfully destroyed." }
       format.json { head :no_content }
     end
   end

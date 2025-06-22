@@ -25,8 +25,8 @@ class ConnectionsController < ApplicationController
 
     respond_to do |format|
       if @connection.save
-        format.html { redirect_to @connection, notice: "Connection was successfully created." }
-        format.json { render :show, status: :created, location: @connection }
+        format.html { redirect_to root_path, notice: "Connection was successfully created." }
+        format.json { render :root, status: :created, location: @connection }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @connection.errors, status: :unprocessable_entity }
@@ -38,8 +38,8 @@ class ConnectionsController < ApplicationController
   def update
     respond_to do |format|
       if @connection.update(connection_params)
-        format.html { redirect_to @connection, notice: "Connection was successfully updated." }
-        format.json { render :show, status: :ok, location: @connection }
+        format.html { redirect_to root_path, notice: "Connection was successfully updated." }
+        format.json { render :root, status: :ok, location: @connection }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @connection.errors, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class ConnectionsController < ApplicationController
     @connection.destroy!
 
     respond_to do |format|
-      format.html { redirect_to connections_path, status: :see_other, notice: "Connection was successfully destroyed." }
+      format.html { redirect_to root_path, status: :see_other, notice: "Connection was successfully destroyed." }
       format.json { head :no_content }
     end
   end

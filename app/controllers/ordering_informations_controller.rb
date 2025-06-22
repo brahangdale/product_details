@@ -25,8 +25,8 @@ class OrderingInformationsController < ApplicationController
 
     respond_to do |format|
       if @ordering_information.save
-        format.html { redirect_to @ordering_information, notice: "Ordering information was successfully created." }
-        format.json { render :show, status: :created, location: @ordering_information }
+        format.html { redirect_to root_path, notice: "Ordering information was successfully created." }
+        format.json { render :root, status: :created, location: @ordering_information }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @ordering_information.errors, status: :unprocessable_entity }
@@ -38,8 +38,8 @@ class OrderingInformationsController < ApplicationController
   def update
     respond_to do |format|
       if @ordering_information.update(ordering_information_params)
-        format.html { redirect_to @ordering_information, notice: "Ordering information was successfully updated." }
-        format.json { render :show, status: :ok, location: @ordering_information }
+        format.html { redirect_to root_path, notice: "Ordering information was successfully updated." }
+        format.json { render :root, status: :ok, location: @ordering_information }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @ordering_information.errors, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class OrderingInformationsController < ApplicationController
     @ordering_information.destroy!
 
     respond_to do |format|
-      format.html { redirect_to ordering_informations_path, status: :see_other, notice: "Ordering information was successfully destroyed." }
+      format.html { redirect_to root_path, status: :see_other, notice: "Ordering information was successfully destroyed." }
       format.json { head :no_content }
     end
   end
