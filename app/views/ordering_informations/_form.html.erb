@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="sectionmain mt-5 p-3 col-md-4">
+    <% if  action_name == "new"  %> 
+      <h3>New Ordering Information</h3>
+      <%else%>
+      <h3>Edit Ordering Information</h3>
+    <%end%>
+    <%= form_with(model: ordering_information) do |form| %>
+      <% if ordering_information.errors.any? %>
+        <div style="color: red">
+          <h5><%= pluralize(ordering_information.errors.count, "error") %> prohibited this ordering_information from being saved:</h5>
+
+          <ul>
+            <% ordering_information.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div  class="mb-3">
+        <%= form.label :cat_no, style: "display: block" %>
+        <%= form.text_field :cat_no, class:"form-control" %>
+      </div>
+
+      <div  class="mb-3">
+        <%= form.label :description, style: "display: block" %>
+        <%= form.text_area :description, class:"form-control"%>
+      </div>
+
+      <div  class="mb-3">
+        <%= form.label :std_pack, style: "display: block" %>
+        <%= form.number_field :std_pack, class: "form-control" %>
+      </div>
+
+      <div  class="mb-3">
+        <%= form.label :image %>
+        <%= form.file_field :image, class: "form-control" %>
+      </div>
+
+      <div class="fbtn">
+        <%= form.submit "Submit", class: "btn btn-sm btn-primary" %>
+                <%= link_to "Back to Home", root_path, class: "btn btn-sm btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-4"></div>
+</div>

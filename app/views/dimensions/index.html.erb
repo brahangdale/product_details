@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Dimensions</h1>
+
+<div id="dimensions">
+  <% @dimensions.each do |dimension| %>
+    <%= render dimension %>
+    <p>
+      <%= link_to "Show", dimension %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New", new_dimension_path %>

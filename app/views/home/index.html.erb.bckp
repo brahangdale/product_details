@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="sectionmain mt-5 p-3">
+            <div class="flaxcontain">
+              <h5>TECHNICAL DATA</h5>
+              <%= link_to "Add Data +", new_technical_path,class: "btn btn-sm btngreen btn-danger" %>
+            </div>
+            <div class="table-responsive mt-3">
+              <table class="table table-striped table-bordered align-middle">
+                <tbody>
+                    <% @technicals.each do |technical| %>
+                      <tr>
+                        <td><%=  technical.title%></td>
+                        <td><%= technical.value%></td>
+                        <td>
+                          <%= link_to  technical, class: "btn btn-sm btn-info text-white" do %>
+                            <i class="bi bi-eye"></i> 
+                          <% end %>
+                         
+                          <%= link_to  edit_technical_path(technical), class: "btn btn-sm btn-primary" do  %> <i class="bi bi-pencil"> </i><%end%>
+                          <%= button_to  technical, method: :delete, class:"btn btn-sm btn-danger" do %><i class="bi bi-trash"></i><%end%>
+                        </td>
+                      </tr>
+                    <%end%>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="sectionmain mt-5 p-3">
+            <div class="flaxcontain">
+              <h5>CONNECTION DATA</h5>
+              <%# <button class="btn btn-sm btngreen btn-danger"></button> %>
+              <%= link_to "Add Data +", new_connection_path, class: "btn btn-sm btngreen btn-danger" %>
+            </div>
+            <div class="table-responsive mt-3">
+              <table class="table table-striped table-bordered align-middle">
+                <tbody>
+                  <% @connections.each do |connection| %>
+                    <tr>
+                      <td><%= connection.title%></td>
+                      <td><%= connection.unit%></td>
+                      <td>
+                        <%= link_to  connection, class: "btn btn-sm btn-info text-white" do %>
+                          <i class="bi bi-eye"></i> 
+                        <% end %>
+                        <%= link_to  edit_connection_path(connection), class: "btn btn-sm btn-primary" do  %> <i class="bi bi-pencil"> </i><%end%>
+                        <%= button_to  connection, method: :delete, class:"btn btn-sm btn-danger" do %><i class="bi bi-trash"></i><%end%>
+                      </td>
+                    </tr>
+                  <%end%>
+                </tbody>
+               </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+           <div class="sectionmain mt-5 p-3">
+              <div class="flaxcontain">
+                 <h5>ORDERING INFORMATION</h5>
+                 <%# <button class="btn btn-sm btngreen btn-danger">Add Data +</button> %>
+                  <%= link_to "Add Data +", new_ordering_information_path, class: "btn btn-sm btngreen btn-danger" %>
+              </div>
+              <div class="table-responsive mt-3">
+                 <table class="table table-striped table-bordered align-middle">
+                    <thead class="table-dark">
+                       <tr>
+                          <th>CAT. NO.</th>
+                          <th>DESCRIPTION</th>
+                          <th>STD. PACK</th>
+                          <th></th>
+                       </tr>
+                    </thead>
+                    <tbody>
+                      <% @ordering_informations.each do |order_info| %>
+                        <tr>
+                          <td><%= order_info.cat_no%></td>
+                          <td><%= order_info.description%></td>
+                          <td><%= order_info.std_pack%></td>
+                          <td>
+                            <%= link_to  order_info, class: "btn btn-sm btn-info text-white" do %>
+                              <i class="bi bi-eye"></i> 
+                            <% end %>
+                            <%= link_to  edit_ordering_information_path(order_info), class: "btn btn-sm btn-primary" do  %> <i class="bi bi-pencil"> </i><%end%>
+                            <%= button_to  order_info, method: :delete, class:"btn btn-sm btn-danger" do %><i class="bi bi-trash"></i><%end%>
+                          </td>
+                        </tr>
+                      <%end%>
+                    </tbody>
+                 </table>
+              </div>
+           </div>
+        </div>
+        <div class="col-md-6">
+           <div class="sectionmain mt-5 p-3">
+              <div class="flaxcontain">
+                 <h5>DIMENSIONS</h5>
+                 <%# <button class="btn btn-sm btngreen btn-danger">Add Data +</button> %>
+                 <%= link_to "Add Data +", new_dimension_path, class: "btn btn-sm btngreen btn-danger" %>
+              </div>
+              <div class="table-responsive mt-3">
+                 <table class="table table-striped table-bordered align-middle">
+                    <tbody>
+                      <% @dimensions.each do |dimension| %>
+                        <tr>
+                          <td><%= dimension.name%></td>
+                          <td><%= dimension.unit%></td>
+                          <td>
+                            <%= link_to  dimension, class: "btn btn-sm btn-info text-white" do %>
+                              <i class="bi bi-eye"></i> 
+                            <% end %>
+                            <%= link_to  edit_dimension_path(dimension), class: "btn btn-sm btn-primary" do  %> <i class="bi bi-pencil"> </i><%end%>
+                            <%= button_to  dimension, method: :delete, class:"btn btn-sm btn-danger" do %><i class="bi bi-trash"></i><%end%>
+                          </td>
+                        </tr>
+                      <%end%>
+                    </tbody>
+                 </table>
+              </div>
+           </div>
+        </div>
+      </div>
+      </div>
+   </body>
+</html>

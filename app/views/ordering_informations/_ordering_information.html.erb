@@ -1,0 +1,23 @@
+<div id="<%= dom_id ordering_information %>">
+  <p>
+    <strong>Cat no:</strong>
+    <%= ordering_information.cat_no %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= ordering_information.description %>
+  </p>
+
+  <p>
+    <strong>Std pack:</strong>
+    <%= ordering_information.std_pack %>
+  </p>
+  <p>
+    <% binding.pry%>
+  <% if ordering_information.image.attached? %>
+  <%= image_tag ordering_information.image, size: "50*50" %>
+<% end %>
+</p>
+
+</div>
